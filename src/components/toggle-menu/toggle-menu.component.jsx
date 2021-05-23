@@ -1,5 +1,5 @@
 import { IconButton } from '@chakra-ui/react';
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { AiOutlineMenu } from 'react-icons/ai';
 import React from 'react';
 
 const ToggleMenu = props => {
@@ -7,7 +7,7 @@ const ToggleMenu = props => {
     <IconButton
       display={{ base: 'block', md: 'none' }}
       {...props}
-      icon={<HamburgerIcon />}
+      icon={<AiOutlineMenu />}
     />
   );
 };
