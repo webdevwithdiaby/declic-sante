@@ -9,7 +9,7 @@ const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
   return (
-    <Box minH="8vh" bg="#f55c47" borderBottomWidth="1px">
+    <Box minH="8vh" borderBottomWidth="1px">
       <Flex align="center" minH="8vh" px="3" maxW="71.25rem" mx="auto">
         <ToggleMenu ref={btnRef} onClick={onOpen} mr="5" />
         <DrawerNav isOpen={isOpen} onClose={onClose} finalFocusRef={btnRef} />

@@ -1,14 +1,20 @@
 import React from 'react';
-import { Box, ChakraProvider, theme } from '@chakra-ui/react';
-import Header from './components/header/header.component';
+import { ChakraProvider, theme } from '@chakra-ui/react';
+
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import HomePage from './pages/home.component';
+import CalculatricePage from './pages/calculatrice-page.component';
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Box>
-        <Header />
-      </Box>
-    </ChakraProvider>
+    <BrowserRouter>
+      <ChakraProvider theme={theme}>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/calculatrice" component={CalculatricePage} />
+        </Switch>
+      </ChakraProvider>
+    </BrowserRouter>
   );
 }
 

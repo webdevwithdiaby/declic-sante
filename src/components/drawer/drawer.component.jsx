@@ -8,10 +8,10 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  Flex,
 } from '@chakra-ui/react';
 
 import NavLink from '../nav-link/nav-link.component';
+import CalculatriceLink from '../links/calculatrice-link.component';
 
 const DrawerNav = props => {
   return (
@@ -19,13 +19,15 @@ const DrawerNav = props => {
       <DrawerOverlay>
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader borderBottomWidth="1px">DECLIC-SANTE</DrawerHeader>
+          <DrawerHeader borderBottomWidth="1px" color="teal">
+            DECLIC-SANTE
+          </DrawerHeader>
           <DrawerBody>
-            <Box mb="5">
-              <NavLink color="#000000EB">Calculatrice</NavLink>
+            <Box mb="2">
+              <CalculatriceLink>Calculatrice</CalculatriceLink>
             </Box>
-            <Box mb="5">
-              <NavLink color="#000000EB">Modes Operatoires</NavLink>
+            <Box mb="2">
+              <NavLink>Modes Operatoires</NavLink>
             </Box>
           </DrawerBody>
           <DrawerFooter>FOOTER GOES HERE</DrawerFooter>
