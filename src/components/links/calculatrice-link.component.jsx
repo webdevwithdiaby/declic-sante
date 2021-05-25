@@ -6,7 +6,7 @@ const CalculatriceLink = props => {
   const history = useHistory();
   return (
     <NavLink {...props} onClick={() => history.push('/calculatrice')}>
-      Calculatrice
+      CALCULATRICE
     </NavLink>
   );
 };
