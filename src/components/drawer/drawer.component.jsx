@@ -10,7 +10,6 @@ import {
   DrawerOverlay,
 } from '@chakra-ui/react';
 
-import NavLink from '../nav-link/nav-link.component';
 import CalculatriceLink from '../links/calculatrice-link.component';
 
 const DrawerNav = props => {
@@ -26,9 +25,7 @@ const DrawerNav = props => {
             <Box mb="2">
               <CalculatriceLink>Calculatrice</CalculatriceLink>
             </Box>
-            <Box mb="2">
-              <NavLink>Modes Operatoires</NavLink>
-            </Box>
+            <Box mb="2"></Box>
           </DrawerBody>
           <DrawerFooter>FOOTER GOES HERE</DrawerFooter>
         </DrawerContent>
