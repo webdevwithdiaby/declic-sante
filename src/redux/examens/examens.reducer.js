@@ -1,8 +1,9 @@
 import examensActionTypes from './examens.types';
 import { addExamenToSelectedExamensUtil } from './examens.utils';
+import EXAMNS_DATA from './examens.data';
 
 const INITIAL_STATE = {
-  examens: [],
+  examens: EXAMNS_DATA,
   selectedExamens: [],
   isAmo: false,
 };

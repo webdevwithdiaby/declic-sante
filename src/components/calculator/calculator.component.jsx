@@ -35,6 +35,7 @@ const Calculator = ({
   totalPrice,
 }) => {
   const [amo, setAmo] = useState(isAmo);
+  const [search, setSearch] = useState('');
   useEffect(() => {
     setIsAmo(amo);
     return () => {
@@ -44,6 +45,11 @@ const Calculator = ({
 
   const handleAmoChange = e => {
     setAmo(e.target.checked);
+  };
+
+  const handleSearchChange = e => {
+    const { value } = e.target;
+    setSearch(value);
   };
   return (
     <Box>
@@ -79,6 +85,8 @@ const Calculator = ({
                 borderRadius="10rem"
                 boxShadow="lg"
                 placeholder="Chercher Examen"
+                value={search}
+                onChange={handleSearchChange}
               />
             </InputGroup>
           </Box>
@@ -99,29 +107,31 @@ const Calculator = ({
         maxW="71.25rem"
         mx="auto"
       >
-        {examens.map(examen => (
-          <Grid
-            gridTemplateColumns="1fr auto auto"
-            key={examen.key}
-            _notLast={{
-              borderBottom: '1px solid #ccc',
-            }}
-            p="3"
-          >
-            <Text> {examen.name} </Text>
-            <HStack mx="4">
-              <Text> {examen.price} </Text>
-              <Text> {examen.amo} </Text>
-            </HStack>
-            <Box>
-              <IconButton
-                icon={<AddIcon />}
-                size="sm"
-                onClick={() => addToSelectedExamens(examen)}
-              />
-            </Box>
-          </Grid>
-        ))}
+        {examens
+          .filter(ex => ex.name.toLowerCase().startsWith(search))
+          .map(examen => (
+            <Grid
+              gridTemplateColumns="1fr auto auto"
+              key={examen.key}
+              _notLast={{
+                borderBottom: '1px solid #ccc',
+              }}
+              p="3"
+            >
+              <Text fontSize="sm"> {examen.name} </Text>
+              <HStack mx="4">
+                <Text> {examen.price} </Text>
+                <Text> {examen.amo} </Text>
+              </HStack>
+              <Box>
+                <IconButton
+                  icon={<AddIcon />}
+                  size="sm"
+                  onClick={() => addToSelectedExamens(examen)}
+                />
+              </Box>
+            </Grid>
+          ))}
       </Box>
 
       <Box h="8vh" borderTop="1px solid #ccc">
@@ -144,17 +154,18 @@ const Calculator = ({
                 onChange={handleAmoChange}
               />
             </FormControl>
-            <Text> {totalPrice} </Text>
-            <Text>FCFA</Text>
+            <Text fontSize="sm"> {totalPrice} </Text>
+            <Text fontSize="sm">FCFA</Text>
           </HStack>
 
           <Box>
             <Button
               colorScheme="teal"
               size="sm"
+              fontSize="sm"
               onClick={() => history.push('/calculatrice/more-info')}
             >
-              VOIR PLUS
+              PLUS
             </Button>
           </Box>
         </Flex>
